@@ -19,8 +19,15 @@ RUN pip install flake8 black jupyter
 ENV PYTHONPATH="/src/:$PATH"
 ENV TZ="Europe/Rome"
 
-RUN apt-get update && apt-get install -y \
-    fonts-dejavu ttf-mscorefonts-installer \
-    && rm -rf /var/lib/apt/lists/*
+RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt/sources.list.d/contrib.list
+
+RUN apt-get update
+RUN apt-get install -y fonts-dejavu
+RUN apt-get install -y ttf-mscorefonts-installer
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update 
+RUN apt-get install -y texlive-full
+RUN rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8888
