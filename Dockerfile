@@ -19,4 +19,8 @@ RUN pip install flake8 black jupyter
 ENV PYTHONPATH="/src/:$PATH"
 ENV TZ="Europe/Rome"
 
+RUN apt-get update && apt-get install -y \
+    fonts-dejavu ttf-mscorefonts-installer \
+    && rm -rf /var/lib/apt/lists/*
+
 EXPOSE 8888
