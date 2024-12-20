@@ -1,5 +1,3 @@
-# nutrition-irrigation-model-1.2.0
-
 FROM python:3.12-slim
 
 RUN mkdir /src
@@ -24,9 +22,6 @@ RUN echo "deb http://deb.debian.org/debian bookworm contrib non-free" > /etc/apt
 RUN apt-get update
 RUN apt-get install -y fonts-dejavu
 RUN apt-get install -y ttf-mscorefonts-installer
-RUN rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update 
 RUN apt-get install -y texlive-full
 RUN rm -rf /var/lib/apt/lists/*
 
